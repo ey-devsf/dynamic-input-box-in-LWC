@@ -1,0 +1,123 @@
+<template>
+    <div class="demo-container">
+        <h1 class="demo-container__title">Dynamic Input Component Demo</h1>
+        <p class="demo-container__description">
+            このデモは、データ型に応じて自動的に入力フィールドを切り替える汎用コンポーネントの動作を示します。
+        </p>
+
+        <!-- Text Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">Text Input (最大10文字)</h2>
+            <c-dynamic-input
+                data-type="Text"
+                label="テキスト入力"
+                max-length="10"
+                default-value="サンプル"
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {textValue}
+                <br/>
+                <strong>バリデーション:</strong> {textValidation}
+            </div>
+        </div>
+
+        <!-- Number Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">Number Input (整数3桁、小数2桁)</h2>
+            <c-dynamic-input
+                data-type="Number"
+                label="数値入力"
+                precision="3"
+                scale="2"
+                default-value="123.45"
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {numberValue}
+                <br/>
+                <strong>バリデーション:</strong> {numberValidation}
+            </div>
+        </div>
+
+        <!-- Date Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">Date Input</h2>
+            <c-dynamic-input
+                data-type="Date"
+                label="日付入力"
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {dateValue}
+                <br/>
+                <strong>バリデーション:</strong> {dateValidation}
+            </div>
+        </div>
+
+        <!-- DateTime Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">DateTime Input</h2>
+            <c-dynamic-input
+                data-type="DateTime"
+                label="日時入力"
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {dateTimeValue}
+                <br/>
+                <strong>バリデーション:</strong> {dateTimeValidation}
+            </div>
+        </div>
+
+        <!-- Picklist Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">Picklist Input</h2>
+            <c-dynamic-input
+                data-type="Picklist"
+                label="選択リスト"
+                picklist-options={picklistOptions}
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {picklistValue}
+                <br/>
+                <strong>バリデーション:</strong> {picklistValidation}
+            </div>
+        </div>
+
+        <!-- Boolean Input Demo -->
+        <div class="demo-section">
+            <h2 class="demo-section__title">Boolean Input</h2>
+            <c-dynamic-input
+                data-type="Boolean"
+                label="チェックボックス"
+                default-value={true}
+                onvaluechange={handleValueChange}
+                onerror={handleError}
+            ></c-dynamic-input>
+            <div class="demo-section__output">
+                <strong>入力値:</strong> {booleanValue}
+                <br/>
+                <strong>バリデーション:</strong> {booleanValidation}
+            </div>
+        </div>
+
+        <!-- Error Messages -->
+        <template if:true={hasErrors}>
+            <div class="demo-errors">
+                <h3 class="demo-errors__title">エラーログ</h3>
+                <ul class="demo-errors__list">
+                    <template for:each={errorMessages} for:item="error">
+                        <li key={error.id} class="demo-errors__item">{error.message}</li>
+                    </template>
+                </ul>
+            </div>
+        </template>
+    </div>
+</template>
