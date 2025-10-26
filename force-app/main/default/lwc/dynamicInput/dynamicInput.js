@@ -2,7 +2,7 @@ import { LightningElement, api } from 'lwc';
 
 export default class DynamicInput extends LightningElement {
     // API Properties
-    @api dataType;
+    @api fieldType;
     @api maxLength;
     @api precision;
     @api scale;
@@ -22,27 +22,27 @@ export default class DynamicInput extends LightningElement {
 
     // Computed properties for conditional rendering
     get isText() {
-        return this.dataType === 'Text';
+        return this.fieldType === 'Text';
     }
 
     get isNumber() {
-        return this.dataType === 'Number';
+        return this.fieldType === 'Number';
     }
 
     get isDate() {
-        return this.dataType === 'Date';
+        return this.fieldType === 'Date';
     }
 
     get isDateTime() {
-        return this.dataType === 'DateTime';
+        return this.fieldType === 'DateTime';
     }
 
     get isPicklist() {
-        return this.dataType === 'Picklist';
+        return this.fieldType === 'Picklist';
     }
 
     get isBoolean() {
-        return this.dataType === 'Boolean';
+        return this.fieldType === 'Boolean';
     }
 
     // Handle value change
@@ -86,7 +86,7 @@ export default class DynamicInput extends LightningElement {
         let errorMessage = '';
 
         try {
-            switch (this.dataType) {
+            switch (this.fieldType) {
                 case 'Text':
                     if (this.maxLength && value && value.length > this.maxLength) {
                         isValid = false;

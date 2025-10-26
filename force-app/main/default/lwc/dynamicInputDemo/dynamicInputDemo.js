@@ -28,6 +28,9 @@ export default class DynamicInputDemo extends LightningElement {
         { label: 'オプション4', value: 'option4' }
     ];
 
+    // Default boolean value
+    booleanDefaultValue = true;
+
     get hasErrors() {
         return this.errorMessages.length > 0;
     }

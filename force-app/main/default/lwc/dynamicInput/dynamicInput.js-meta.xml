@@ -11,8 +11,8 @@
     </targets>
     <targetConfigs>
         <targetConfig targets="lightning__AppPage,lightning__RecordPage,lightning__HomePage">
-            <property name="dataType" type="String" label="Data Type" 
-                      description="Input data type (Text, Number, Date, DateTime, Picklist, Boolean)" 
+            <property name="fieldType" type="String" label="Field Type" 
+                      description="Input field type (Text, Number, Date, DateTime, Picklist, Boolean)" 
                       default="Text" required="true"/>
             <property name="label" type="String" label="Field Label" 
                       description="Label for the input field"/>

@@ -63,7 +63,7 @@ sfdx force:source:deploy -p force-app -u <your-org-alias>
 
 ```html
 <c-dynamic-input
-    data-type="Text"
+    field-type="Text"
     label="会社名"
     max-length="50"
     onvaluechange={handleValueChange}
@@ -74,7 +74,7 @@ sfdx force:source:deploy -p force-app -u <your-org-alias>
 
 ```html
 <c-dynamic-input
-    data-type="Number"
+    field-type="Number"
     label="金額"
     precision="10"
     scale="2"
@@ -86,7 +86,7 @@ sfdx force:source:deploy -p force-app -u <your-org-alias>
 
 ```html
 <c-dynamic-input
-    data-type="Picklist"
+    field-type="Picklist"
     label="業種"
     picklist-options={options}
     onvaluechange={handleValueChange}

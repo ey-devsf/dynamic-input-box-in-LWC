@@ -9,7 +9,7 @@
         <div class="demo-section">
             <h2 class="demo-section__title">Text Input (最大10文字)</h2>
             <c-dynamic-input
-                data-type="Text"
+                field-type="Text"
                 label="テキスト入力"
                 max-length="10"
                 default-value="サンプル"
@@ -27,7 +27,7 @@
         <div class="demo-section">
             <h2 class="demo-section__title">Number Input (整数3桁、小数2桁)</h2>
             <c-dynamic-input
-                data-type="Number"
+                field-type="Number"
                 label="数値入力"
                 precision="3"
                 scale="2"
@@ -46,7 +46,7 @@
         <div class="demo-section">
             <h2 class="demo-section__title">Date Input</h2>
             <c-dynamic-input
-                data-type="Date"
+                field-type="Date"
                 label="日付入力"
                 onvaluechange={handleValueChange}
                 onerror={handleError}
@@ -62,7 +62,7 @@
         <div class="demo-section">
             <h2 class="demo-section__title">DateTime Input</h2>
             <c-dynamic-input
-                data-type="DateTime"
+                field-type="DateTime"
                 label="日時入力"
                 onvaluechange={handleValueChange}
                 onerror={handleError}
@@ -78,7 +78,7 @@
         <div class="demo-section">
             <h2 class="demo-section__title">Picklist Input</h2>
             <c-dynamic-input
-                data-type="Picklist"
+                field-type="Picklist"
                 label="選択リスト"
                 picklist-options={picklistOptions}
                 onvaluechange={handleValueChange}
@@ -95,9 +95,9 @@
         <div class="demo-section">
             <h2 class="demo-section__title">Boolean Input</h2>
             <c-dynamic-input
-                data-type="Boolean"
+                field-type="Boolean"
                 label="チェックボックス"
-                default-value={true}
+                default-value={booleanDefaultValue}
                 onvaluechange={handleValueChange}
                 onerror={handleError}
             ></c-dynamic-input>

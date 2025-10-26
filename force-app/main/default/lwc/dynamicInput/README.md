@@ -34,7 +34,7 @@
 
 | プロパティ名 | 型 | 説明 |
 |------------|----|----|
-| `dataType` | String | データ型（Text, Number, Date, DateTime, Picklist, Boolean） |
+| `fieldType` | String | フィールド型（Text, Number, Date, DateTime, Picklist, Boolean） |
 
 ### オプショナルプロパティ
 
@@ -77,7 +77,7 @@ event.detail = {
 
 ```html
 <c-dynamic-input
-    data-type="Text"
+    field-type="Text"
     label="会社名"
     max-length="10"
     default-value="株式会社ABC"
@@ -90,7 +90,7 @@ event.detail = {
 
 ```html
 <c-dynamic-input
-    data-type="Number"
+    field-type="Number"
     label="金額"
     precision="3"
     scale="2"
@@ -103,7 +103,7 @@ event.detail = {
 
 ```html
 <c-dynamic-input
-    data-type="Date"
+    field-type="Date"
     label="契約日"
     onvaluechange={handleValueChange}
 ></c-dynamic-input>
@@ -113,7 +113,7 @@ event.detail = {
 
 ```html
 <c-dynamic-input
-    data-type="DateTime"
+    field-type="DateTime"
     label="イベント開始時刻"
     onvaluechange={handleValueChange}
 ></c-dynamic-input>
@@ -123,7 +123,7 @@ event.detail = {
 
 ```html
 <c-dynamic-input
-    data-type="Picklist"
+    field-type="Picklist"
     label="業種"
     picklist-options={industryOptions}
     onvaluechange={handleValueChange}
@@ -144,9 +144,9 @@ industryOptions = [
 
 ```html
 <c-dynamic-input
-    data-type="Boolean"
+    field-type="Boolean"
     label="メール配信を希望する"
-    default-value={true}
+    default-value={booleanValue}
     onvaluechange={handleValueChange}
 ></c-dynamic-input>
 ```
@@ -284,7 +284,7 @@ CSS変数やクラスを使用してスタイルをカスタマイズできま�
 ```javascript
 // オブジェクトの項目メタデータから動的にフォームを生成
 fields.forEach(field => {
-    // fieldのdataTypeに応じてdynamicInputコンポーネントを表示
+    // fieldのfieldTypeに応じてdynamicInputコンポーネントを表示
 });
 ```
 
@@ -324,7 +324,7 @@ fields.forEach(field => {
 ### バリデーションが動作しない
 
 - 各データ型に対応したバリデーションプロパティが設定されているか確認
-- `dataType` プロパティが正しく設定されているか確認
+- `fieldType` プロパティが正しく設定されているか確認
 
 ## ライセンス
 
