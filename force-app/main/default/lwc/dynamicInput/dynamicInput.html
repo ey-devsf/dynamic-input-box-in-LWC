@@ -1,0 +1,84 @@
+<template>
+    <div class="dynamic-input">
+        <!-- Label -->
+        <template if:true={label}>
+            <label class="dynamic-input__label">{label}</label>
+        </template>
+
+        <!-- Text Input -->
+        <template if:true={isText}>
+            <input 
+                type="text" 
+                class="dynamic-input__field dynamic-input__field--text"
+                value={currentValue}
+                maxlength={maxLength}
+                onchange={handleChange}
+                placeholder={label}
+            />
+        </template>
+
+        <!-- Number Input -->
+        <template if:true={isNumber}>
+            <input 
+                type="number" 
+                class="dynamic-input__field dynamic-input__field--number"
+                value={currentValue}
+                onchange={handleChange}
+                placeholder={label}
+            />
+        </template>
+
+        <!-- Date Input -->
+        <template if:true={isDate}>
+            <input 
+                type="date" 
+                class="dynamic-input__field dynamic-input__field--date"
+                value={currentValue}
+                onchange={handleChange}
+            />
+        </template>
+
+        <!-- DateTime Input -->
+        <template if:true={isDateTime}>
+            <input 
+                type="datetime-local" 
+                class="dynamic-input__field dynamic-input__field--datetime"
+                value={currentValue}
+                onchange={handleChange}
+            />
+        </template>
+
+        <!-- Picklist (Select) -->
+        <template if:true={isPicklist}>
+            <select 
+                class="dynamic-input__field dynamic-input__field--picklist"
+                value={currentValue}
+                onchange={handleChange}
+            >
+                <option value="">-- 選択してください --</option>
+                <template for:each={picklistOptions} for:item="option">
+                    <option key={option.value} value={option.value}>
+                        {option.label}
+                    </option>
+                </template>
+            </select>
+        </template>
+
+        <!-- Boolean (Checkbox) -->
+        <template if:true={isBoolean}>
+            <div class="dynamic-input__checkbox-wrapper">
+                <input 
+                    type="checkbox" 
+                    class="dynamic-input__field dynamic-input__field--checkbox"
+                    checked={currentValue}
+                    onchange={handleChange}
+                />
+            </div>
+        </template>
+
+        <!-- Error Message -->
+        <template if:true={errorMessage}>
+            <div class="dynamic-input__error">{errorMessage}</div>
+        </template>
+    </div>
+</template>
