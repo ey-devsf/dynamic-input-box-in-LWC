@@ -1,0 +1,96 @@
+.dynamic-input {
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.dynamic-input__label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.dynamic-input__field {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #d4d4d4;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.dynamic-input__field:focus {
+    outline: none;
+    border-color: #0176d3;
+    box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.1);
+}
+
+.dynamic-input__field--text {
+    /* Specific styles for text input */
+}
+
+.dynamic-input__field--number {
+    /* Specific styles for number input */
+}
+
+.dynamic-input__field--date {
+    /* Specific styles for date input */
+}
+
+.dynamic-input__field--datetime {
+    /* Specific styles for datetime input */
+}
+
+.dynamic-input__field--picklist {
+    /* Specific styles for select/picklist */
+    cursor: pointer;
+}
+
+.dynamic-input__field--checkbox {
+    width: auto;
+    height: 18px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.dynamic-input__checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.dynamic-input__error {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #c23934;
+    font-weight: 500;
+}
+
+/* Error state styling */
+.dynamic-input__field:invalid,
+.dynamic-input__field.error {
+    border-color: #c23934;
+}
+
+.dynamic-input__field:invalid:focus,
+.dynamic-input__field.error:focus {
+    box-shadow: 0 0 0 3px rgba(194, 57, 52, 0.1);
+}
+
+/* Disabled state */
+.dynamic-input__field:disabled {
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Placeholder styling */
+.dynamic-input__field::placeholder {
+    color: #999;
+    opacity: 1;
+}
