@@ -27,6 +27,7 @@
                 onchange={handleChange}
                 placeholder={label}
                 variant="label-hidden"
+                step={numberStep}
             ></lightning-input>
         </template>
 
@@ -54,19 +55,15 @@
 
         <!-- Picklist (Select) -->
         <template if:true={isPicklist}>
-            <select 
+            <lightning-combobox
                 class="dynamic-input__field dynamic-input__field--picklist"
                 name="picklist"
                 value={currentValue}
+                placeholder="選択してください"
+                options={computedPicklistOptions}
                 onchange={handleChange}
-            >
-                <option value="">-- 選択してください --</option>
-                <template for:each={picklistOptions} for:item="option">
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                </template>
-            </select>
+                variant="label-hidden"
+            ></lightning-combobox>
         </template>
 
         <!-- Boolean (Checkbox) -->
