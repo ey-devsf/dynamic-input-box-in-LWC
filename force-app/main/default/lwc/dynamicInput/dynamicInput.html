@@ -7,45 +7,47 @@
 
         <!-- Text Input -->
         <template if:true={isText}>
-            <input 
+            <lightning-input 
                 type="text" 
                 class="dynamic-input__field dynamic-input__field--text"
                 value={currentValue}
-                maxlength={maxLength}
+                max-length={maxLength}
                 onchange={handleChange}
-                placeholder={label}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- Number Input -->
         <template if:true={isNumber}>
-            <input 
+            <lightning-input 
                 type="number" 
                 class="dynamic-input__field dynamic-input__field--number"
                 value={currentValue}
                 onchange={handleChange}
-                placeholder={label}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- Date Input -->
         <template if:true={isDate}>
-            <input 
+            <lightning-input 
                 type="date" 
                 class="dynamic-input__field dynamic-input__field--date"
                 value={currentValue}
                 onchange={handleChange}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- DateTime Input -->
         <template if:true={isDateTime}>
-            <input 
-                type="datetime-local" 
+            <lightning-input 
+                type="datetime" 
                 class="dynamic-input__field dynamic-input__field--datetime"
                 value={currentValue}
                 onchange={handleChange}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- Picklist (Select) -->
@@ -67,12 +69,13 @@
         <!-- Boolean (Checkbox) -->
         <template if:true={isBoolean}>
             <div class="dynamic-input__checkbox-wrapper">
-                <input 
+                <lightning-input 
                     type="checkbox" 
                     class="dynamic-input__field dynamic-input__field--checkbox"
                     checked={currentValue}
                     onchange={handleChange}
-                />
+                    variant="label-hidden"
+                ></lightning-input>
             </div>
         </template>
 

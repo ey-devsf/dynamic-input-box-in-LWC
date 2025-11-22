@@ -13,6 +13,26 @@
 
 .dynamic-input__field {
     width: 100%;
+}
+
+/* Override lightning-input default styles to match original design */
+.dynamic-input__field lightning-input {
+    --slds-c-input-sizing-border: 1px solid #d4d4d4;
+    --slds-c-input-color-border: #d4d4d4;
+    --slds-c-input-color-border-focus: #0176d3;
+    --slds-c-input-shadow-focus: 0 0 0 3px rgba(1, 118, 211, 0.1);
+    --slds-c-input-spacing-block-start: 10px;
+    --slds-c-input-spacing-block-end: 10px;
+    --slds-c-input-spacing-inline-start: 12px;
+    --slds-c-input-spacing-inline-end: 12px;
+    --slds-c-input-text-color: #333;
+    --slds-c-input-font-size: 14px;
+    --slds-c-input-line-height: 1.5;
+}
+
+/* Legacy fallback for browsers that don't support CSS custom properties on lightning-input */
+.dynamic-input__field select {
+    width: 100%;
     padding: 10px 12px;
     font-size: 14px;
     line-height: 1.5;
@@ -24,7 +44,7 @@
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.dynamic-input__field:focus {
+.dynamic-input__field select:focus {
     outline: none;
     border-color: #0176d3;
     box-shadow: 0 0 0 3px rgba(1, 118, 211, 0.1);
