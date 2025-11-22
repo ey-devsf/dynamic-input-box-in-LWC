@@ -45,6 +45,21 @@ export default class DynamicInput extends LightningElement {
         return this.fieldType === 'Boolean';
     }
 
+    // Compute picklist options with empty option at the beginning
+    get computedPicklistOptions() {
+        const emptyOption = { label: '-- 選択してください --', value: '' };
+        return [emptyOption, ...(this.picklistOptions || [])];
+    }
+
+    // Compute step for number input based on scale
+    get numberStep() {
+        if (this.scale === undefined || this.scale === null || this.scale === 0) {
+            return '1';
+        }
+        // Create step value like 0.1, 0.01, 0.001, etc. based on scale
+        return '0.' + '0'.repeat(this.scale - 1) + '1';
+    }
+
     // Handle value change
     handleChange(event) {
         const target = event.target;

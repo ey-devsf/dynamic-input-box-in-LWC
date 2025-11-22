@@ -7,72 +7,75 @@
 
         <!-- Text Input -->
         <template if:true={isText}>
-            <input 
+            <lightning-input 
                 type="text" 
                 class="dynamic-input__field dynamic-input__field--text"
                 value={currentValue}
-                maxlength={maxLength}
+                max-length={maxLength}
                 onchange={handleChange}
                 placeholder={label}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- Number Input -->
         <template if:true={isNumber}>
-            <input 
+            <lightning-input 
                 type="number" 
                 class="dynamic-input__field dynamic-input__field--number"
                 value={currentValue}
                 onchange={handleChange}
                 placeholder={label}
-            />
+                variant="label-hidden"
+                step={numberStep}
+            ></lightning-input>
         </template>
 
         <!-- Date Input -->
         <template if:true={isDate}>
-            <input 
+            <lightning-input 
                 type="date" 
                 class="dynamic-input__field dynamic-input__field--date"
                 value={currentValue}
                 onchange={handleChange}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- DateTime Input -->
         <template if:true={isDateTime}>
-            <input 
-                type="datetime-local" 
+            <lightning-input 
+                type="datetime" 
                 class="dynamic-input__field dynamic-input__field--datetime"
                 value={currentValue}
                 onchange={handleChange}
-            />
+                variant="label-hidden"
+            ></lightning-input>
         </template>
 
         <!-- Picklist (Select) -->
         <template if:true={isPicklist}>
-            <select 
+            <lightning-combobox
                 class="dynamic-input__field dynamic-input__field--picklist"
+                name="picklist"
                 value={currentValue}
+                placeholder="選択してください"
+                options={computedPicklistOptions}
                 onchange={handleChange}
-            >
-                <option value="">-- 選択してください --</option>
-                <template for:each={picklistOptions} for:item="option">
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                </template>
-            </select>
+                variant="label-hidden"
+            ></lightning-combobox>
         </template>
 
         <!-- Boolean (Checkbox) -->
         <template if:true={isBoolean}>
             <div class="dynamic-input__checkbox-wrapper">
-                <input 
+                <lightning-input 
                     type="checkbox" 
                     class="dynamic-input__field dynamic-input__field--checkbox"
                     checked={currentValue}
                     onchange={handleChange}
-                />
+                    variant="label-hidden"
+                ></lightning-input>
             </div>
         </template>
 

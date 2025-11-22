@@ -12,7 +12,7 @@ Lightning Web Component (LWC) で実装した、データ型に応じて入力UI
 - **自動バリデーション**: 各データ型に応じた入力チェック機能
 - **カスタムイベント**: 親コンポーネントへの値変更・エラー通知
 - **BEM CSS設計**: 保守性の高いスタイリング
-- **標準HTML要素使用**: `lightning-input` を使わず、標準のinput/selectを使用
+- **Lightning標準コンポーネント使用**: `lightning-input` と標準のselectを使用
 
 ## コンポーネント構成
 
@@ -138,12 +138,12 @@ dynamic-input-box-in-LWC/
 
 | データ型 | 入力UI | バリデーション機能 |
 |---------|--------|------------------|
-| Text | `<input type="text">` | 最大文字数チェック |
-| Number | `<input type="number">` | 整数桁・小数桁チェック |
-| Date | `<input type="date">` | 日付フォーマットチェック |
-| DateTime | `<input type="datetime-local">` | 日時フォーマットチェック |
+| Text | `<lightning-input type="text">` | 最大文字数チェック |
+| Number | `<lightning-input type="number">` | 整数桁・小数桁チェック |
+| Date | `<lightning-input type="date">` | 日付フォーマットチェック |
+| DateTime | `<lightning-input type="datetime">` | 日時フォーマットチェック |
 | Picklist | `<select>` | 選択必須チェック |
-| Boolean | `<input type="checkbox">` | true/false のみ |
+| Boolean | `<lightning-input type="checkbox">` | true/false のみ |
 
 ## 今後の拡張予定
 
